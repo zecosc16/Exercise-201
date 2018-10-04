@@ -5,15 +5,28 @@
  */
 package ex_201;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author oskar
  */
 public class VelocityDlg extends javax.swing.JDialog {
 
-    /**
-     * Creates new form VelocityDlg
-     */
+    private boolean ok;
+    private Measurement m;
+    private static DateTimeFormatter df;
+    private static DateTimeFormatter tf;
+
+    static {
+        df = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        tf = DateTimeFormatter.ofPattern("HH:mm");
+    }
+
     public VelocityDlg(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -28,21 +41,104 @@ public class VelocityDlg extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        tfDate = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tfTime = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfLabel = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tfVelocityMeasured = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tfVelocityAllowed = new javax.swing.JTextField();
+        btOK = new javax.swing.JButton();
+        btCancel = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridLayout(6, 2));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("Datum:");
+        getContentPane().add(jLabel1);
+
+        tfDate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tfDate.setText("08.10.2013");
+        getContentPane().add(tfDate);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("Uhrzeit:");
+        getContentPane().add(jLabel2);
+
+        tfTime.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tfTime.setText("07:55");
+        getContentPane().add(tfTime);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Kennzeichen:");
+        getContentPane().add(jLabel3);
+
+        tfLabel.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tfLabel.setText("GU-RASER1");
+        getContentPane().add(tfLabel);
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("V-Gemessen:");
+        getContentPane().add(jLabel4);
+
+        tfVelocityMeasured.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tfVelocityMeasured.setText("123");
+        getContentPane().add(tfVelocityMeasured);
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel5.setText("V-Erlaubt:");
+        getContentPane().add(jLabel5);
+
+        tfVelocityAllowed.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tfVelocityAllowed.setText("80");
+        getContentPane().add(tfVelocityAllowed);
+
+        btOK.setText("Übernehmen");
+        btOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btOKActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btOK);
+
+        btCancel.setText("Abbrechen");
+        btCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btCancel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public boolean isOk() {
+        return ok;
+    }
+
+    public Measurement getM() {
+        return m;
+    }
+
+
+    private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
+        ok = false;
+        this.dispose();
+    }//GEN-LAST:event_btCancelActionPerformed
+
+    private void btOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOKActionPerformed
+        try {
+            m = new Measurement(LocalDateTime.of(LocalDate.parse(tfDate.getText(), df), LocalTime.parse(tfTime.getText(), tf)), tfLabel.getText(), Integer.parseInt(tfVelocityMeasured.getText()), Integer.parseInt(tfVelocityAllowed.getText()));
+            ok = true;
+            this.dispose();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error with input!");
+        }
+    }//GEN-LAST:event_btOKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -87,5 +183,17 @@ public class VelocityDlg extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCancel;
+    private javax.swing.JButton btOK;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField tfDate;
+    private javax.swing.JTextField tfLabel;
+    private javax.swing.JTextField tfTime;
+    private javax.swing.JTextField tfVelocityAllowed;
+    private javax.swing.JTextField tfVelocityMeasured;
     // End of variables declaration//GEN-END:variables
 }
