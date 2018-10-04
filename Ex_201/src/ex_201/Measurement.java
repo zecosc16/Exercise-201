@@ -24,6 +24,10 @@ public class Measurement {
         this.velocityAllowed = velocityAllowed;
     }
 
+    public int calculateVelocityDiff(){
+        return velocityMeasured-velocityAllowed;
+    }
+    
     public LocalDateTime getDateTime() {
         return dateTime;
     }
