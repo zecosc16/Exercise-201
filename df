@@ -1,0 +1,30 @@
+[33mcommit ee9c5e635ee131ea610b6d00bdaf5ce669e745e8[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 44cb10e 57fb78c
+Author: Johannes Riedmueller <johannesriedmueller@Johanness-MacBook-Pro.local>
+Date:   Thu Oct 4 08:20:52 2018 +0200
+
+    Merge test
+
+[33mcommit 57fb78c52cf30552292e45fd7b156f25f25799e0[m[33m ([m[1;31morigin/oskar[m[33m, [m[1;32moskar[m[33m)[m
+Author: Mac 10 <zecosc16@htlkaindorf.at>
+Date:   Thu Oct 4 08:15:41 2018 +0200
+
+    added some classes
+
+[33mcommit 44cb10e7a066de80a55787bd24577166e3593da2[m
+Author: Johannes Riedmueller <johannesriedmueller@Johanness-MacBook-Pro.local>
+Date:   Thu Oct 4 08:15:34 2018 +0200
+
+    Created Measurement
+
+[33mcommit 7a43a78167df978774a63c6fadb5d20a30dd01eb[m[33m ([m[1;31morigin/johannes[m[33m)[m
+Author: Mac 10 <zecosc16@htlkaindorf.at>
+Date:   Tue Oct 2 10:25:23 2018 +0200
+
+    created the project
+
+[33mcommit 5c6bed001bbe8f01eed7b4f06acd279a3242febe[m
+Author: zecosc16 <39900941+zecosc16@users.noreply.github.com>
+Date:   Tue Oct 2 10:21:18 2018 +0200
+
+    Initial commit

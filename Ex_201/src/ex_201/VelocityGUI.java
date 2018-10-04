@@ -5,17 +5,21 @@
  */
 package ex_201;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author oskar
  */
 public class VelocityGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VelocityGUI
-     */
+    private VelocityTableModel tm = new VelocityTableModel();
     public VelocityGUI() {
         initComponents();
+        
+        jMessungen.setModel(tm);
+        
+        tm.add(new Measurement(LocalDateTime.now(), "GUGU", 300,50 ));
     }
 
     /**
@@ -27,18 +31,40 @@ public class VelocityGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMAdd = new javax.swing.JMenuItem();
+        jMDelete = new javax.swing.JMenuItem();
+        jMAverage = new javax.swing.JMenuItem();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jMessungen = new javax.swing.JTable();
+
+        jMAdd.setText("Hinzufügen");
+        jPopupMenu1.add(jMAdd);
+
+        jMDelete.setText("Löschen");
+        jPopupMenu1.add(jMDelete);
+
+        jMAverage.setText("Durchschnitt");
+        jPopupMenu1.add(jMAverage);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Messungen"));
+
+        jMessungen.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jMessungen);
+
+        getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +105,11 @@ public class VelocityGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jMAdd;
+    private javax.swing.JMenuItem jMAverage;
+    private javax.swing.JMenuItem jMDelete;
+    private javax.swing.JTable jMessungen;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
